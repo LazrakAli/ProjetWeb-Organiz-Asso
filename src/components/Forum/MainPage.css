@@ -1,0 +1,36 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; 
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.connected {
+    background-color: #007bff; /* Bleu vibrant pour l'état connecté */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.not-connected {
+    background-color: #6c757d; /* Gris bleuté pour l'état non connecté */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
