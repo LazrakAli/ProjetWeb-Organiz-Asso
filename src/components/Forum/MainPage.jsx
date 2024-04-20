@@ -31,15 +31,11 @@ function MainPage() {
             return;
         } try {
             const messageData = {
-                titre: title, // Assurez-vous que les clés correspondent à ce que l'API attend
-                texte: newMessage, // `texte` au lieu de `text`
-                login: user.login, // `login` devrait être le même que celui stocké dans l'état du contexte d'authentification
+                titre: title, 
+                texte: newMessage, 
+                login: user.login, 
             };
-            // Corrigez l'URL si nécessaire. Elle doit correspondre exactement à l'endpoint défini dans votre serveur
             const response = await axios.post('http://localhost:3000/api/messages', messageData);
-            
-            // Supposons que votre serveur renvoie le message complet sauvegardé
-            // Vous pouvez vérifier les champs renvoyés et ajuster en conséquence
             const savedMessage = response.data.savedMessage; 
     
             // Mettre à jour l'état avec le nouveau message
@@ -75,9 +71,9 @@ function MainPage() {
                     <div className="latest-messages">
                         {latestMessages.map((message) => (
                             <div key={message._id} className="message">
-                                <h3>{message.titre}</h3> {/* Utilisez `titre` au lieu de `title` */}
-                                <p>{message.texte}</p> {/* Utilisez `texte` au lieu de `text` */}
-                                <span>{message.login} - {new Date(message.date).toLocaleString()}</span> {/* Utilisez `login` au lieu de `user` */}
+                                <h3>{message.titre}</h3> 
+                                <p>{message.texte}</p> 
+                                <span>{message.login} - {new Date(message.date).toLocaleString()}</span>
                             </div>
                         ))}
                     </div>

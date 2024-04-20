@@ -4,10 +4,8 @@ const Message = require('../models/message.model');
 exports.messagePost = async (req, res) => {
     try {
         const { login, titre, texte } = req.body;
-
         // Crée un nouveau message avec les données fournies
         const newMessage = new Message({ login, titre, texte });
-
         // Enregistre le nouveau message dans la base de données
         const savedMessage = await newMessage.save();
 

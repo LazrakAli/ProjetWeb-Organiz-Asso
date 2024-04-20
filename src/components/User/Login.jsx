@@ -20,7 +20,7 @@ function Login() {
             const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
             if (response.data && response.data.user) {
                 login(response.data.user); // Vérifiez que la réponse contient l'utilisateur
-                navigate('/profile');
+                navigate('/user/profile');
             } else {
                 console.error('Login failed: No user data received');
             }
