@@ -16,8 +16,11 @@ mongoose.connect('mongodb://localhost:27017/organiz-asso')
 .catch(err => console.log(err));
 
 
-// Routes
+// Pour les routes d'utilisateur
 app.use('/api/users', require('./routes/userRoutes'));
+
+// Pour les routes de messages
+app.use('/api/messages', require('./routes/messageRoutes'));
 
 // Définir le port
 const PORT = process.env.PORT || 3000;

@@ -51,9 +51,9 @@ exports.handleLogin = async (req, res) => {
                 id: user._id,
                 email: user.email,
                 login: user.login,
-                firstname: user.firstname, // Assurez-vous que ces champs existent
-                lastname: user.lastname,
-                publication: user.publication // Si applicable
+                firstName: user.firstName, 
+                lastName: user.lastName,
+                publication: user.publication 
             }
         });
     } catch (error) {
