@@ -24,3 +24,15 @@ exports.MessageGet = async (req, res) => {
         res.status(500).json({ message: "Erreur lors de la récupération des messages", error: error.message });
     }
 };
+
+
+
+exports.GetOwnMessage = async (req, res) => {
+    const userLogin = req.params.login.toLowerCase(); // Convertit le login en minuscules pour assurer la correspondance
+    try {
+        const messages = await Message.find({ login: userLogin }); // Récupère les messages pour l'utilisateur spécifié
+        res.status(200).json(messages);
+    } catch (error) {
+        res.status(500).json({ message: "Erreur lors de la récupération des messages", error: error.message });
+    }
+};

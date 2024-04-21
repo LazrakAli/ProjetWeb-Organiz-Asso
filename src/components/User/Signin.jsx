@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // Importez useNavigate
+import { useNavigate } from 'react-router-dom';  
 import './Signin.css';
 
 function Signin() {
@@ -11,6 +11,7 @@ function Signin() {
   const [lastname, setLastname] = useState('');
   const [firstname, setFirstname] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // Ajout du message de succès
   const navigate = useNavigate();  // Hook pour la navigation
 
   const handleSubmit = async (event) => {
@@ -24,7 +25,11 @@ function Signin() {
         login, email, password, lastName: lastname, firstName: firstname
       });
       console.log('User created:', response.data);
-      navigate('/');  // Redirige vers la page d'accueil après l'inscription
+      setSuccessMessage('Inscription réussie!'); // Définition du message de succès
+      setTimeout(() => {
+        setSuccessMessage(''); // Effacer le message de succès après un certain temps
+        navigate('/');  // Redirige vers la page d'accueil après l'inscription
+      }, 3000); // Attendre 3 secondes avant de rediriger
     } catch (error) {
       setErrorMessage('Error creating user: ' + (error.response?.data?.message || 'Unknown Error'));
     }
@@ -34,9 +39,14 @@ function Signin() {
     <div className="signin-container">
       <h2>Inscription</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {successMessage && (
+        <p className="success-message">
+          {successMessage} <span role="img" aria-label="success">&#x2705;</span>
+        </p>
+      )}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>login:</label>
+          <label>Login:</label>
           <input type="text" value={login} onChange={e => setLogin(e.target.value)} required />
         </div>
         <div>
