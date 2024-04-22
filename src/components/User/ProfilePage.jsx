@@ -6,6 +6,8 @@ import './ProfilePage.css';
 function ProfilePage() {
     const { user } = useAuth();
     const [messages, setMessages] = useState([]);
+    const [editingMessageId, setEditingMessageId] = useState(null);
+    const [editText, setEditText] = useState('');
 
     useEffect(() => {
         if (user) {
@@ -14,6 +16,38 @@ function ProfilePage() {
                  .catch(error => console.error('Error fetching messages:', error));
         }
     }, [user]);
+
+    const handleDeleteMessage = async (messageId) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/messages/${messageId}`);
+            setMessages(messages.filter(message => message._id !== messageId));
+        } catch (error) {
+            console.error('Error deleting message:', error);
+        }
+    };
+
+    const updateMessage = async (messageId, updatedText) => {
+        try {
+            await axios.put(`http://localhost:3000/api/messages/${messageId}`, { texte: updatedText });
+            // Mettre à jour les messages après la modification réussie
+            const updatedMessages = messages.map(message => {
+                if (message._id === messageId) {
+                    return { ...message, texte: updatedText };
+                }
+                return message;
+            });
+            setMessages(updatedMessages);
+            setEditingMessageId(null); // Pour désactiver le mode édition
+        } catch (error) {
+            console.error('Error modifying message:', error);
+        }
+    };
+
+    const handleKeyDown = (e, messageId) => {
+        if (e.key === 'Enter') {
+            updateMessage(messageId, editText);
+        }
+    };
 
     if (!user) {
         return <div>Chargement du profil...</div>;
@@ -32,8 +66,19 @@ function ProfilePage() {
                     {messages.map((message) => (
                         <div key={message._id} className="message">
                             <h3>{message.titre}</h3>
-                            <p>{message.texte}</p>
+                                {editingMessageId === message._id ? (
+                                    <textarea 
+                                        className="edit-textarea"
+                                        defaultValue={message.texte} 
+                                        onChange={(e) => setEditText(e.target.value)}
+                                        onKeyDown={(e) => handleKeyDown(e, message._id)}
+                                    />
+                                    ) : (
+                                        <p>{message.texte}</p>
+                                    )}
                             <span>{message.login} - {new Date(message.date).toLocaleString()}</span>
+                            <button className="delete-button" onClick={() => handleDeleteMessage(message._id)}>Supprimer</button>
+                            <button className="modif-button" onClick={() => setEditingMessageId(message._id)}>Modifier</button>
                         </div>
                     ))}
                 </div>

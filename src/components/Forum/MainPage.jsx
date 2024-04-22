@@ -12,9 +12,8 @@ function MainPage() {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                // Corrigez l'URL si nécessaire
                 const response = await axios.get('http://localhost:3000/api/messages/');
-                console.log(response.data);  // Ajoutez ceci pour voir les données renvoyées par l'API
+                console.log(response.data);  
                 setLatestMessages(response.data);
             } catch (error) {
                 console.error('Erreur lors de la récupération des derniers messages', error);
@@ -38,10 +37,10 @@ function MainPage() {
             const response = await axios.post('http://localhost:3000/api/messages', messageData);
             const savedMessage = response.data.savedMessage; 
     
-            // Mettre à jour l'état avec le nouveau message
+            
             setLatestMessages([savedMessage, ...latestMessages]);
-            setTitle(''); // Réinitialiser le titre dans l'état
-            setNewMessage(''); // Réinitialiser le message dans l'état
+            setTitle(''); 
+            setNewMessage(''); 
         } catch (error) {
             console.error('Erreur lors de l\'envoi du message', error.response ? error.response.data : error);
         }

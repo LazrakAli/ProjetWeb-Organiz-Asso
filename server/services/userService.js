@@ -52,8 +52,7 @@ exports.handleLogin = async (req, res) => {
                 email: user.email,
                 login: user.login,
                 firstName: user.firstName, 
-                lastName: user.lastName,
-                publication: user.publication 
+                lastName: user.lastName
             }
         });
     } catch (error) {

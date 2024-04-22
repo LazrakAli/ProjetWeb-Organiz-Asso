@@ -5,6 +5,7 @@ import App from './App';
 import { AuthProvider } from './components/Auth/AuthContext'; 
 import './index.css';
 
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 

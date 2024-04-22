@@ -12,14 +12,14 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth(); // Utilisez auth pour accéder à la méthode login
+    const { login } = useAuth(); 
 
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
             if (response.data && response.data.user) {
-                login(response.data.user); // Vérifiez que la réponse contient l'utilisateur
+                login(response.data.user); 
                 navigate('/user/profile');
             } else {
                 console.error('Login failed: No user data received');

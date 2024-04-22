@@ -36,3 +36,47 @@ exports.GetOwnMessage = async (req, res) => {
         res.status(500).json({ message: "Erreur lors de la récupération des messages", error: error.message });
     }
 };
+
+
+exports.deleteMessage = async (req, res) => {
+    try {
+       const { messageId } = req.params; // ID du message à supprimer
+        const message = await Message.findById(messageId);
+
+        if (!message) {
+            return res.status(404).json({ message: "Message non trouvé" });
+        }
+        await Message.findByIdAndDelete(messageId);
+        res.status(200).json({ message: "Message supprimé avec succès" });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur lors de la suppression du message", error: error.message });
+    }
+};
+
+
+exports.updateMessage = async (req, res) => {
+    try {
+        const { messageId } = req.params; // ID du message à modifier
+        const { texte } = req.body; // Nouveau titre et nouveau texte du message
+
+        // Recherche du message à modifier
+        let message = await Message.findById(messageId);
+
+        // Vérification si le message existe
+        if (!message) {
+            return res.status(404).json({ message: "Message non trouvé" });
+        }
+
+        // Mise à jour du titre et du texte du message
+        message.texte = texte;
+
+        // Sauvegarde des modifications
+        await message.save();
+
+        // Réponse indiquant que le message a été modifié avec succès
+        res.status(200).json({ message: "Message modifié avec succès" });
+    } catch (error) {
+        // Gestion des erreurs en cas de problème lors de la modification du message
+        res.status(500).json({ message: "Erreur lors de la modification du message", error: error.message });
+    }
+};

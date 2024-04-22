@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors'); // Importez cors
 
 const app = express();
@@ -21,6 +20,7 @@ app.use('/api/users', require('./routes/userRoutes'));
 
 // Pour les routes de messages
 app.use('/api/messages', require('./routes/messageRoutes'));
+
 
 // Définir le port
 const PORT = process.env.PORT || 3000;
