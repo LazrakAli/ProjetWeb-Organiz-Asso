@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const { createUser, getUsers, handleLogin } = require('../services/userService');
+module.exports = (usersCollection) => {
+    const express = require('express');
+    const router = express.Router();
+    const userService = require('../services/userService')(usersCollection);
 
+    router.post('/signin', userService.createUser);
+    router.get('/ListUsers', userService.getUsers);
+    router.post('/login', userService.handleLogin);
 
-router.post('/signin', createUser);
-router.get('/ListUsers', getUsers);
-router.post('/login', handleLogin);  
-
-
-module.exports = router;
+    return router;
+};

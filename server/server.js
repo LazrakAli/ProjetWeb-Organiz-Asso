@@ -1,29 +1,39 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors'); // Importez cors
+const mongodb = require('mongodb');
+const cors = require('cors');
 
 const app = express();
-
-// Activez CORS pour toutes les origines ou configurez selon vos besoins
 app.use(cors());
 app.use(express.json());
 
+const MongoClient = mongodb.MongoClient;
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
 
-// Connectez-vous à MongoDB
-mongoose.connect('mongodb://localhost:27017/organiz-asso')
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+async function startServer() {
+    try {
+        await client.connect();
+        console.log('Connected to MongoDB');
 
+        const db = client.db('organiz-asso');
+        const usersCollection = db.collection('users');
+        const messagesCollection = db.collection('messages');
+        const adminCollection = db.collection('admins');
 
-// Pour les routes d'utilisateur
-app.use('/api/users', require('./routes/userRoutes'));
+        const userRoutes = require('./routes/userRoutes')(usersCollection);
+        const messageRoutes = require('./routes/messageRoutes')(messagesCollection);
+        const adminRoutes = require('./routes/adminRoutes')(adminCollection);
 
-// Pour les routes de messages
-app.use('/api/messages', require('./routes/messageRoutes'));
+        app.use('/api/users', userRoutes);
+        app.use('/api/messages', messageRoutes);
+        app.use('/api/admin',adminRoutes);
+        
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+        process.exit(1);
+    }
+}
 
-
-// Définir le port
-const PORT = process.env.PORT || 3000;
-
-// Démarrer le serveur
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+startServer();

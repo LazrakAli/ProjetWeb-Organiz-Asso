@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import './Login.css';
-
-
-
-
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth(); 
+    const { login } = useAuth();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -43,6 +39,9 @@ function Login() {
                 </div>
                 <button type="submit">Se connecter</button>
             </form>
+            <div className="admin-login">
+                <p>Se connecter en tant qu'<Link to="/login/admin">Administrateur</Link> </p>
+            </div>
         </div>
     );
 }
