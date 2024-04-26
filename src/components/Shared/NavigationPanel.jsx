@@ -19,7 +19,7 @@ function NavigationPanel() {
     };
 
     return (
-        <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px', backgroundColor: admin ? '#c9302c' : '#f4f4f4' }}>
+        <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px', backgroundColor: admin ? '#FF7F00' : '#f4f4f4' }}>
             {admin ? ( // Afficher les fonctionnalités spécifiques aux administrateurs
                 <>
                     <Link to="/users">Users</Link>

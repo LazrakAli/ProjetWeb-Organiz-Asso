@@ -1,5 +1,3 @@
-const mongodb = require('mongodb');
-
 module.exports = (messagesCollection) => ({
     messagePost: async (req, res) => {
         try {

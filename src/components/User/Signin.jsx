@@ -21,7 +21,7 @@ function Signin() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/api/users/signin', {
+      const response = await axios.put('http://localhost:3000/api/users/signin', {
         login, email, password, lastName: lastname, firstName: firstname
       });
       console.log('User created:', response.data);
