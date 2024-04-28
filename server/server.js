@@ -7,8 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 const MongoClient = mongodb.MongoClient;
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri);
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 
 async function startServer() {
     try {
@@ -20,13 +20,12 @@ async function startServer() {
         const messagesCollection = db.collection('messages');
         const adminCollection = db.collection('admins');
 
-        const userRoutes = require('./routes/userRoutes')(usersCollection);
-        const messageRoutes = require('./routes/messageRoutes')(messagesCollection);
-        const adminRoutes = require('./routes/adminRoutes')(adminCollection);
 
-        app.use('/api/users', userRoutes);
-        app.use('/api/messages', messageRoutes);
-        app.use('/api/admin',adminRoutes);
+        // Import du fichier api.js
+        const apiRoutes = require('./api')(usersCollection, messagesCollection);
+
+        // Utilisation des routes définies dans api.js
+        app.use('/api', apiRoutes);
         
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

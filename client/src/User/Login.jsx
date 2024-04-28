@@ -17,7 +17,7 @@ function Login() {
             const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
             if (response.data && response.data.user) {
                 login(response.data.user);
-                navigate('/user/profile');
+                navigate('/profile/:userId');
             } else {
                 console.error('Login failed: No user data received');
             }
@@ -46,9 +46,6 @@ function Login() {
                 <button type="submit">Se connecter</button>
                 {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Affichage conditionnel du message d'erreur */}
             </form>
-            <div className="admin-login">
-                <p>Se connecter en tant qu'<Link to="/login/admin">Administrateur</Link></p>
-            </div>
         </div>
     );
 }
