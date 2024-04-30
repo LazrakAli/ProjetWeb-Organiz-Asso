@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../Auth/AuthContext'; // Importation de useAuth pour accéder aux détails de l'utilisateur
-import './PageReponse.css';
+import { useAuth } from '../Auth/AuthContext'; 
 
 function PageReponse() {
     const [message, setMessage] = useState(null);
@@ -62,7 +61,7 @@ function PageReponse() {
                 <div>
                     <h2>{message.titre}</h2>
                     <p>{message.texte}</p>
-                    <p>Publié par {message.login}</p>
+                    <p className='p_droite'>Publié par {message.login}</p>
 
                     <h3>Répondre au message</h3>
                     <textarea value={responseText} onChange={(e) => setResponseText(e.target.value)} />

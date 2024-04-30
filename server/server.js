@@ -18,7 +18,7 @@ async function startServer() {
         const db = client.db('organiz-asso');
         const usersCollection = db.collection('users');
         const messagesCollection = db.collection('messages');
-        const adminCollection = db.collection('admins');
+        
 
 
         // Import du fichier api.js

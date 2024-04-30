@@ -25,6 +25,9 @@ module.exports = (usersCollection, messagesCollection) => {
     router.post('/messages/:messageId/responses', messageService.postResponse);
     router.post('/messages/hide', messageService.PostMessageHide);
     router.get('/messages/hide', messageService.GetMessageHide);
+    router.get('/messages/reveal/search', messageService.searchMessagesReveal);
+    router.get('/messages/hide/search', messageService.searchMessagesHide);
+
 
 
 

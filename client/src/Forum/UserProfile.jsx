@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../User/ProfilePage.css'; 
 
 function UserProfile() {
-    const { login } = useParams();
+    const { login } = useParams(); 
     const navigate = useNavigate();
     const [userProfile, setUserProfile] = useState(null);
     const [messages, setMessages] = useState([]);
@@ -13,12 +12,12 @@ function UserProfile() {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                // Assurez-vous que l'URL correspond exactement à ce que votre backend attend
+               
                 const response = await axios.get(`http://localhost:3000/api/users/profile/login/${login}`);
                 setUserProfile(response.data);
             } catch (error) {
-                console.error('Error fetching user profile:', error);
-                setError('Failed to fetch user profile');
+                console.error('Erreur lors de la récupération du profil utilisateur:', error);
+                setError('Échec de la récupération du profil utilisateur');
             }
         };
 
@@ -27,8 +26,8 @@ function UserProfile() {
                 const response = await axios.get(`http://localhost:3000/api/messages/login/${login}`);
                 setMessages(response.data);
             } catch (error) {
-                console.error('Error fetching messages:', error);
-                setError('Failed to fetch messages');
+                console.error('Erreur lors de la récupération des messages:', error);
+                setError('Échec de la récupération des messages');
             }
         };
 
@@ -37,22 +36,22 @@ function UserProfile() {
     }, [login]);
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Erreur : {error}</div>;
     }
 
     if (!userProfile) {
-        return <div>Loading user profile...</div>;
+        return <div>Chargement du profil utilisateur en cours...</div>;
     }
 
     return (
         <div className="user-profile-container">
-            <h2>Profil de {userProfile.login}</h2>
+            <h2 className='titre'>Profil de {userProfile.login}</h2>
             <div className="profile-detail"><strong>Email:</strong> {userProfile.email}</div>
             <div className="profile-detail"><strong>Nom d'utilisateur:</strong> {userProfile.login}</div>
             <div className="profile-detail"><strong>Prénom:</strong> {userProfile.firstName}</div>
             <div className="profile-detail"><strong>Nom:</strong> {userProfile.lastName}</div>
             <div className="profile-messages">
-                <h2>Messages de {userProfile.login}:</h2>
+                <h2 className='titre'>Messages de {userProfile.login}:</h2>
                 {messages.map((message) => (
                     <div key={message._id} className="message">
                         <h3>{message.titre}</h3>

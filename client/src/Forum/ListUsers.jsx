@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../Auth/AuthContext';
-import './ListUsers.css';
 
 function ListUsers() {
     const { user } = useAuth();
@@ -50,7 +49,7 @@ function ListUsers() {
     return (
         <div className="user-list">
             <div>
-                <h1>Utilisateurs en attente de validation</h1>
+                <h1 className='titre'>Utilisateurs en attente de validation</h1>
                 <ul>
                     {unvalidatedUsers.map(user => (
                         <li key={user._id}>
@@ -64,7 +63,7 @@ function ListUsers() {
                 </ul>
             </div>
             <div>
-                <h1>Administrateurs</h1>
+                <h1 className='titre'>Administrateurs</h1>
                 <ul>
                     {admins.map(user => (
                         <li key={user._id}>
@@ -78,7 +77,7 @@ function ListUsers() {
                 </ul>
             </div>
             <div>
-                <h1>Utilisateurs</h1>
+                <h1 className='titre'>Utilisateurs</h1>
                 <ul>
                     {regularUsers.map(user => (
                         <li key={user._id}>

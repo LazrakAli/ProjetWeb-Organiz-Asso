@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
-import './Login.css';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -23,7 +22,7 @@ function Login() {
             }
         } catch (error) {
             if (error.response?.status === 403) {
-                setErrorMessage('Compte non validé. Veuillez attendre la validation de votre compte par un administrateur.'); // Message pour le code 403
+                setErrorMessage('Compte non validé. Veuillez attendre la validation de votre compte par un administrateur.');
             } else {
                 setErrorMessage(error.response?.data?.message || 'Erreur inconnue lors de la connexion');
             }
@@ -34,7 +33,7 @@ function Login() {
     return (
         <div className="login-container">
             <h2>Connexion</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className="loginForm">
                 <div>
                     <label>Email:</label>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
@@ -44,7 +43,7 @@ function Login() {
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
                 </div>
                 <button type="submit">Se connecter</button>
-                {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Affichage conditionnel du message d'erreur */}
+                {errorMessage && <div className="error-message">{errorMessage}</div>}
             </form>
         </div>
     );

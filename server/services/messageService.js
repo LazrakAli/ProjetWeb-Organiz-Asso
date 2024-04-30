@@ -27,13 +27,56 @@ module.exports = (messagesCollection) => ({
             // Ajoutez un filtre pour ne sélectionner que les messages où 'visible' est true
             const messages = await messagesCollection.find({ visible: true })
                                                      .sort({ date: -1 })
-                                                     .limit(30)
                                                      .toArray();
             res.status(200).json(messages);
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la récupération des messages", error: error.message });
         }
     },
+    // Function to search visible messages (visible==true)
+    searchMessagesReveal : async (req, res) => {
+        const searchTerm = req.query.term; // Récupération du terme de recherche
+        const query = {
+            $and: [
+                { $or: [
+                    { titre: { $regex: searchTerm, $options: 'i' } },
+                    { texte: { $regex: searchTerm, $options: 'i' } },
+                    { login: { $regex: searchTerm, $options: 'i' } }
+                ]},
+                { visible: true }  // Search only visible messages
+            ]
+        };
+
+        try {
+            const messages = await messagesCollection.find(query).toArray();
+            res.status(200).json(messages);
+        } catch (error) {
+            res.status(500).json({ message: "Erreur lors de la recherche des messages visibles", error: error.message });
+        }
+    },
+
+    // Function to search hidden messages (visible==false)
+    searchMessagesHide : async (req, res) => {
+        const searchTerm = req.query.term; // Récupération du terme de recherche
+        const query = {
+            $and: [
+                { $or: [
+                    { titre: { $regex: searchTerm, $options: 'i' } },
+                    { texte: { $regex: searchTerm, $options: 'i' } },
+                    { login: { $regex: searchTerm, $options: 'i' } }
+                ]},
+                { visible: false }  // Search only hidden messages
+            ]
+        };
+
+        try {
+            const messages = await messagesCollection.find(query).toArray();
+            res.status(200).json(messages);
+        } catch (error) {
+            res.status(500).json({ message: "Erreur lors de la recherche des messages cachés", error: error.message });
+        }
+    },
+    
 
     getMessageById: async (req, res) => {
         try {
