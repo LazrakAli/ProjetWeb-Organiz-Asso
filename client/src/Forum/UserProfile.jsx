@@ -12,7 +12,6 @@ function UserProfile() {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-               
                 const response = await axios.get(`http://localhost:3000/api/users/profile/login/${login}`);
                 setUserProfile(response.data);
             } catch (error) {
@@ -34,6 +33,11 @@ function UserProfile() {
         fetchUserProfile();
         fetchUserMessages();
     }, [login]);
+
+    // Fonction pour gérer le clic sur le bouton "Répondre"
+    const handleResponse = (messageId) => {
+        navigate(`/messages/${messageId}`);
+    };
 
     if (error) {
         return <div>Erreur : {error}</div>;
