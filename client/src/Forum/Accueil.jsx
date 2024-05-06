@@ -5,6 +5,7 @@ function Accueil() {
     return (
         <div className="home-page">
             <div className="left-section">
+                <img src="../../public/icone_de_la_page.ico" alt="Logo" className="site-logo" />
                 <h1 className="site-title">Organiz'Asso</h1>
             </div>
             <div className="right-section">

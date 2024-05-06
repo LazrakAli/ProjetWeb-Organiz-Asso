@@ -8,8 +8,8 @@ module.exports = (usersCollection, messagesCollection) => {
     router.put('/users/signin', userService.createUser);
     router.post('/users/login', userService.handleLogin);
     router.get('/users/ListUsers', userService.getUsers);
-    router.post('/users/validate-user/:userId', userService.legitUser);
-    router.delete('/users/delete-user/:userId', userService.deleteUser);
+    router.post('/users/:userId/validate', userService.legitUser);
+    router.delete('/users/:userId/delete', userService.deleteUser);
     router.get('/users/unvalidated-users', userService.getUnvalidatedUsers);
     router.post('/users/:userId/promote', userService.promoteToAdmin);
     router.post('/users/:userId/demote', userService.demoteFromAdmin);

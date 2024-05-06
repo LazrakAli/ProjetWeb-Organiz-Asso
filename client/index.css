@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comic+Sans+MS&display=swap');
 
 /*                                     General                                 */
 .titre {
@@ -13,65 +13,62 @@
 
 .message {
     padding: 10px;
-    background-color: #f9f9f9; /* Light grey background for better readability */
-    border: 1px solid #ddd; /* Subtle border for the message box */
-    border-radius: 4px; /* Rounded corners for aesthetic touch */
-    margin-bottom: 20px; /* Space between messages */
+    background-color: #f9f9f9; /* Fond gris clair pour une meilleure lisibilité */
+    border: 1px solid #ddd; /* Bordure subtile pour la boîte de message */
+    border-radius: 4px; /* Coins arrondis */
+    margin-bottom: 20px; /* Espace entre les messages */
 }
 
 .message h3 {
-    font-weight: bold; /* Makes the title bold */
-    margin-bottom: 10px; /* Space after the title */
+    font-weight: bold; /* Rendre le titre en gras */
+    margin-bottom: 10px; /* Espace après le titre */
 }
 
 .message p {
-    margin-bottom: 10px; /* Space between the text and the metadata or buttons */
+    margin-bottom: 10px; /* Espace entre le texte et les boutons */
 }
 
 .message span {
-    font-style: italic; /* Makes the author and date italic */
-    display: block; /* Ensures it takes the full width available */
-    margin-bottom: 10px; /* Space before the buttons */
+    font-style: italic; /* Mettre l'auteur et la date en italique */
+    display: block; /* Assure que l'élément prend toute la largeur disponible */
+    margin-bottom: 10px; /* Espace avant les boutons */
 }
 
 .message .button-container {
-    display: flex; /* Aligns buttons in a row */
-    align-items: center; /* Centers buttons vertically */
-    gap: 10px; /* Adds space between buttons */
+    display: flex; /* Aligne les boutons en ligne */
+    align-items: center; /* Centre verticalement les boutons */
+    gap: 10px; /* Ajoute de l'espace entre les boutons */
 }
 
 .delete-button, .modif-button {
     padding: 6px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s;
 }
 
 .delete-button {
-    background-color: #f44336; /* Red color for delete action */
+    background-color: #6a11cb; /* Couleur violette */
     color: white;
 }
 
 .delete-button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
+    background-color: #4a1b84; /* Violette plus foncé au survol */
 }
 
 .modif-button {
-    background-color: #2196f3; /* Blue color for modify and respond actions */
+    background-color: #6a11cb; /* Couleur violette */
     color: white;
 }
 
 .modif-button:hover {
-    background-color: #1976d2; /* Darker blue on hover */
+    background-color: #4a1b84; /* Violette plus foncé au survol */
 }
 
 
-/*-----------------------------------------------------------Acceuil----------------------------------------------------------- */
-/* Import Google Fonts */
-
-
+/*-----------------------------------------------------------Accueil----------------------------------------------------------- */
 /* CSS Reset pour le body et tous les éléments pour éliminer les marges par défaut */
 * {
     margin: 0;
@@ -85,7 +82,7 @@
 
 /* Application des styles spécifiques */
 body, button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
 }
 
 .home-page {
@@ -93,9 +90,10 @@ body, button {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #d1c4e9 0%, #6a11cb 100%);
     color: #ffffff;
 }
+
 
 .left-section, .right-section {
     flex: 1;
@@ -124,7 +122,7 @@ body, button {
 
 .button {
     padding: 10px 25px;
-    border-radius: 20px;
+    border-radius: 15px;
     border: none;
     font-size: 16px;
     font-weight: 500;
@@ -133,24 +131,33 @@ body, button {
     margin: 5px;
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: #6a11cb; /* Violet */
 }
 
 .button-primary {
-    background-color: #1a73e8;
+    background-color: #6a11cb; /* Violet */
 }
 
 .button-primary:hover {
-    background-color: #1358a2;
+    background-color: #4a1b84; /* Violette plus foncée */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .button-secondary {
-    background-color: #5865F2;
+    background-color: #6a11cb; /* Violet */
 }
 
 .button-secondary:hover {
-    background-color: #4e54c8;
+    background-color: #4a1b84; /* Violette plus foncée */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.site-logo {
+    width: 100px; /* Ajustez la largeur selon vos préférences */
+    height: 100px; /* Ajustez la hauteur selon vos préférences */
+    border-radius: 50%; /* Arrondit l'image pour la rendre circulaire */
+    display: block; /* Affiche l'image comme un élément de bloc */
+    margin: 0 auto 20px; /* Centre le logo horizontalement et ajoute un espace en bas */
 }
 
 /*----------------------------------------------------  Login ---------------------------------------------------------- */
@@ -161,9 +168,8 @@ body, button {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #d1c4e9 0%, #6a11cb 100%);
     color: #ffffff;
-    font-family: 'Roboto', sans-serif;
     padding: 20px;
     text-align: center; /* Assurer que tout est centré */
 }
@@ -193,8 +199,8 @@ body, button {
 
 .login-container input {
     padding: 12px;
-    border-radius: 5px;
-    border: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     font-size: 16px;
     background: #ffffff; /* Fond blanc pour les inputs */
     color: #333; /* Texte plus sombre pour une meilleure lisibilité */
@@ -203,11 +209,11 @@ body, button {
 
 button {
     padding: 12px 25px;
-    background-color: #1a73e8;
+    background-color: #6a11cb; /* Violet */
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 20px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s;
@@ -216,7 +222,7 @@ button {
 }
 
 button:hover {
-    background-color: #1358a2;
+    background-color: #4a1b84; /* Violette plus foncé */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -238,74 +244,73 @@ button:hover {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #6a11cb 0%, #6a11cb 100%);
     color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    padding: 15px; /* Ajusté de 10px à 15px */
+    padding: 15px;
     text-align: center;
 }
 
 .signin-container h2 {
-    font-size: 24px; /* Ajusté de 16px à 24px */
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 20px; /* Ajusté de 15px à 20px */
+    margin-bottom: 20px;
 }
 
 .signin-container form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 240px; /* Ajusté de 160px à 240px */
+    max-width: 240px;
 }
 
 .signin-container label {
     display: block;
-    font-size: 12px; /* Ajusté de 8px à 12px */
-    margin-bottom: 6px; /* Ajusté de 4px à 6px */
+    font-size: 12px;
+    margin-bottom: 6px;
 }
 
 .signin-container input {
-    padding: 9px; /* Ajusté de 6px à 9px */
-    border-radius: 4px; /* Ajusté de 2.5px à 4px */
-    border: none;
-    font-size: 12px; /* Ajusté de 8px à 12px */
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 12px;
     background: #ffffff;
     color: #333;
     width: 100%;
-    margin-bottom: 15px; /* Ajusté de 10px à 15px */
+    margin-bottom: 15px;
 }
 
 button {
-    padding: 9px 20px; /* Ajusté de 6px 12.5px à 9px 20px */
-    background-color: #1a73e8;
+    padding: 9px 20px;
+    background-color: #6a11cb; /* Violet */
     color: #ffffff;
-    font-size: 12px; /* Ajusté de 8px à 12px */
+    font-size: 12px;
     font-weight: 500;
-    border-radius: 15px; /* Ajusté de 10px à 15px */
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 3px 4px rgba(0,0,0,0.1); /* Légèrement ajusté pour plus de volume */
-    margin-top: 15px; /* Ajusté de 10px à 15px */
+    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    margin-top: 15px;
 }
 
 button:hover {
-    background-color: #1358a2;
-    box-shadow: 0 1.5px 3px rgba(0,0,0,0.2); /* Ajusté pour être plus modéré */
+    background-color: #4a1b84; /* Violette plus foncée */
+    box-shadow: 0 1.5px 3px rgba(0,0,0,0.2);
 }
 
 .error-message {
     color: #ff6b6b;
-    font-size: 10px; /* Ajusté de 7px à 10px */
+    font-size: 10px;
     text-align: center;
-    margin-top: 10px; /* Maintenu à 10px */
+    margin-top: 10px;
 }
 
 .success-message {
     color: #28a745;
-    font-size: 10px; /* Ajusté de 7px à 10px */
+    font-size: 10px;
     text-align: center;
-    margin-top: 10px; /* Maintenu à 10px */
+    margin-top: 10px;
 }
 
 
@@ -318,7 +323,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background-color: var(--background-color); /* Using CSS variable for dynamic color change */
+    background-color: #6a11cb; /* Violette */
     justify-content: center;
 }
 
@@ -328,35 +333,34 @@ button:hover {
 }
 
 .nav-link {
-    display: inline-block; /* Ensures the links are block-level elements but line up inline */
-    padding: 5px 8px; /* Provides padding inside the links for a button-like appearance */
-    margin: 5px; /* Adds some space around the links */
-    background-color: #007bff; /* Bootstrap primary blue, but you can choose any color */
-    color: white; /* Text color */
-    text-decoration: none; /* Removes underline from links */
-    border-radius: 4px; /* Rounded corners for a modern button look */
-    transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
-    font-weight: bold; /* Makes the font bold */
-    text-align: center; /* Centers text within the button */
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 5px;
+    background-color: #6a11cb; /* Violette */
+    color: white; /* Texte blanc */
+    text-decoration: none;
+    border-radius: 15px; /* Coins arrondis */
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: bold;
+    text-align: center;
 }
 
 .nav-link:hover, .nav-link:focus {
-    background-color: #0056b3; /* Darker shade of blue for hover state */
-    color: #fff; /* Ensures text color remains white on hover */
-    text-decoration: none; /* Continues to remove underline on hover/focus */
-    outline: none; /* Removes the outline to keep the design clean */
+    background-color: #4a1b84; /* Violette plus foncée */
+    color: white;
+    text-decoration: none;
+    outline: none;
 }
 
 .nav-link:last-child {
-    margin-right: 0; /* No margin for the last link */
+    margin-right: 0; /* Pas de marge pour le dernier lien */
 }
 
 .site-name {
     flex-grow: 2;
     text-align: center;
-    font-size: 24px; /* Or size as per your design preference */
+    font-size: 24px;
     font-weight: bold;
-    
 }
 
 .logout-section {
@@ -366,25 +370,23 @@ button:hover {
 }
 
 .logout-button {
-    padding: 5px 8px; /* Ajustez le padding pour correspondre à celui des nav-link */
-    background-color: #d9534f; /* Couleur distincte pour le bouton de déconnexion */
+    padding: 5px 8px;
+    background-color: #d9534f; /* Rouge pour le bouton de déconnexion */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     cursor: pointer;
-    margin: 5px; /* Assurez-vous que la marge correspond à celle des nav-link */
-    font-weight: bold; /* Correspondance de la mise en forme du texte */
-    font-size: 16px; /* Assurez-vous que la taille de la police est la même que celle des nav-link si nécessaire */
+    margin: 5px;
+    font-weight: bold;
+    font-size: 16px;
     transition: background-color 0.2s, color 0.2s;
     text-align: center;
-    display: inline-block; /* Garantit que le bouton se comporte comme les nav-link */
+    display: inline-block;
 }
 
 .logout-button:hover {
-    background-color: #b3241f; /* Une teinte plus sombre pour l'interaction */
+    background-color: #b3241f; /* Teinte plus sombre lors du survol */
 }
-
-
 
 
 
@@ -392,14 +394,12 @@ button:hover {
 /*----------------------------------------------------  ProfilePage ---------------------------------------------------------- */
 
 
-
-
 .profile-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -424,7 +424,7 @@ h2 {
     margin-bottom: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
 }
 
 .edit-textarea {
@@ -433,37 +433,35 @@ h2 {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
 }
 
 .delete-button, .modif-button {
     padding: 6px 12px;
     margin-right: 5px;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     cursor: pointer;
     font-size: 10px;
     transition: background-color 0.2s;
-    
 }
 
-
 .delete-button {
-    background-color: #f44336;
+    background-color: #6a11cb; /* Violet */
     color: white;
 }
 
 .delete-button:hover {
-    background-color: #d32f2f;
+    background-color: #4a1b84; /* Violet plus foncé au survol */
 }
 
 .modif-button {
-    background-color: #2196F3;
+    background-color: #6a11cb; /* Violet */
     color: white;
 }
 
 .modif-button:hover {
-    background-color: #1976D2;
+    background-color: #4a1b84; /* Violet plus foncé au survol */
 }
 
 
@@ -476,7 +474,7 @@ h2 {
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -497,21 +495,21 @@ h2 {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .new-message-form button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #6a11cb; /* Violet */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .new-message-form button:hover {
-    background-color: #45a049;
+    background-color: #4a1b84; /* Violet plus foncé */
 }
 
 .latest-messages {
@@ -523,7 +521,7 @@ h2 {
     margin-bottom: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .message h3 {
@@ -542,19 +540,17 @@ h2 {
 
 .message button {
     padding: 8px 16px;
-    background-color: #2196F3;
+    background-color: #6a11cb; /* Violet */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .message button:hover {
-    background-color: #0b7dda;
+    background-color: #4a1b84; /* Violet plus foncé */
 }
-
-
 
 
 
@@ -566,61 +562,63 @@ h2 {
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  /* Add margin between each section */
-  .user-list > div {
+/* Add margin between each section */
+.user-list > div {
     margin-bottom: 10px;
-  }
+}
   
-  /* Title for each section */
-  h1 {
+/* Title for each section */
+h1 {
     color: #333;
     font-size: 22px;
     margin-bottom: 10px;
-  }
+}
   
-  /* Styles for the unordered list */
-  ul {
+/* Styles for the unordered list */
+ul {
     list-style-type: none;
     padding: 0;
-  }
+}
   
-  /* Styles for each list item */
-  li {
+/* Styles for each list item */
+li {
     background-color: #fff;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
   
-  /* Container for buttons */
-  .button-container {
+/* Container for buttons */
+.button-container {
     display: flex;
     gap: 8px;
-  }
+}
   
-  /* Styles for all buttons */
-  button {
+/* Styles for all buttons */
+button {
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s;
-  }
+    background-color: #6a11cb; /* Violet */
+    color: white; /* Texte blanc */
+}
   
-  /* Change opacity on hover */
-  button:hover {
+/* Change opacity on hover */
+button:hover {
+    background-color: #4a1b84; /* Violet plus foncé */
     opacity: 0.8;
-  }
-  
+}
 
 
 /*----------------------------------------------------  Search bar ---------------------------------------------------------- */
@@ -630,7 +628,7 @@ h2 {
     align-items: center; /* Centre les éléments verticalement dans le conteneur */
     padding: 10px;
     background-color: #f0f0f0; /* Couleur de fond légère pour la barre de recherche */
-    border-radius: 4px; /* Bords arrondis pour un look moderne */
+    border-radius: 15px; /* Bords arrondis */
     flex: 1 5px;
 }
 
@@ -639,21 +637,21 @@ h2 {
     padding: 8px;
     margin-right: 10px; /* Espacement entre l'input et le bouton */
     border: 1px solid #ccc; /* Bordure subtile pour l'input */
-    border-radius: 4px; /* Bords arrondis pour l'input */
+    border-radius: 15px; /* Coins arrondis */
 }
 
 .search-bar-button {
     padding: 8px 16px;
-    background-color: #007bff; /* Couleur de fond bleue pour le bouton */
-    color: white; /* Texte blanc pour le bouton */
+    background-color: #6a11cb; /* Violet */
+    color: white; /* Texte blanc */
     border: none;
-    border-radius: 4px; /* Bords arrondis pour le bouton */
+    border-radius: 15px; /* Coins arrondis */
     cursor: pointer; /* Style du curseur pour indiquer que c'est un bouton cliquable */
     transition: background-color 0.2s; /* Transition douce pour l'effet de survol */
 }
 
 .search-bar-button:hover {
-    background-color: #0056b3; /* Couleur plus foncée lors du survol */
+    background-color: #4a1b84; /* Violette plus foncé */
 }
 
 
@@ -662,104 +660,101 @@ h2 {
 /*-----------------------------------------Page reponse---------------------------------------------------------------*/
 
 .page-reponse {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
     background-color: #f9f9f9;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .page-reponse h2 {
+.page-reponse h2 {
     font-size: 2rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-weight: bold; 
-  }
+}
   
-  .page-reponse p {
+.page-reponse p {
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
     font-style: italic; 
-  }
+}
 
-  .page-reponse .p_droite {
+.page-reponse .p_droite {
     float: right; 
     clear: both; 
     margin-top: 0; 
     padding-right: 10px; 
 }
 
-  
-  .page-reponse h3 {
+.page-reponse h3 {
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-  }
+}
   
-  .page-reponse textarea {
+.page-reponse textarea {
     width: 100%;
     min-height: 150px;
     padding: 0.5rem;
     font-size: 1.1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     margin-bottom: 1rem;
-  }
+}
   
-  .page-reponse button {
+.page-reponse button {
     width: 100%;
     padding: 0.5rem;
     font-size: 1.1rem;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #6a11cb; /* Violet */
+    color: white; /* Texte blanc */
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Coins arrondis */
     cursor: pointer;
-  }
+}
   
-  .page-reponse button:hover {
-    background-color: #45a049;
-  }
+.page-reponse button:hover {
+    background-color: #4a1b84; /* Violette plus foncé */
+}
   
-  .page-reponse ul {
+.page-reponse ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+}
   
-  .page-reponse li {
+.page-reponse li {
     padding: 0.5rem 0;
     font-size: 1.1rem;
     border-bottom: 1px solid #ccc;
-  }
-  
-  .error {
+}
+
+.error {
     color: #d32f2f;
     background-color: #fddbd7;
     border: 1px solid #b01a1a;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border-radius: 4px;
-  }
+    border-radius: 15px;
+}
 
 
-  /*------------------------------------------Page Utilisateur--------------------------------------------------*/
+/*------------------------------------------Page Utilisateur--------------------------------------------------*/
 
-  /* Conteneur principal pour le profil utilisateur, centré avec un fond et une ombre pour une meilleure lisibilité */
 .user-profile-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: 'Arial', sans-serif; /* Typographie cohérente */
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
 }
 
-/* Style des détails du profil pour améliorer la lisibilité et la présentation */
 .profile-detail {
     margin-bottom: 10px;
     font-size: 16px;
@@ -774,7 +769,7 @@ h2 {
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 15px; /* Coins arrondis */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -782,7 +777,7 @@ h2 {
     font-size: 24px;
     color: #333;
     font-weight: bold;
-    margin-bottom: 20px; /* Space between sections */
+    margin-bottom: 20px;
 }
 
 .new-message-form {
@@ -796,22 +791,22 @@ h2 {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
     width: 100%; /* Full width to match form container */
 }
 
 .new-message-form button {
     padding: 10px 20px;
-    background-color: #10a92c; /* Bright blue for visibility */
+    background-color: #6a11cb; /* Violet */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.new-message-form button:hover {
-    background-color: #1358a2; /* Darker blue on hover */
+new-message-form button:hover {
+    background-color: #4a1b84; /* Violette plus foncé */
 }
 
 .hidden-messages .message {
@@ -819,7 +814,7 @@ h2 {
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .hidden-messages h3 {
@@ -841,14 +836,14 @@ h2 {
 
 .hidden-messages button {
     padding: 8px 16px;
-    background-color: #085b06;
+    background-color: #6a11cb; /* Violet */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .hidden-messages button:hover {
-    background-color: #0056b3;
+    background-color: #4a1b84; /* Violette plus foncé */
 }

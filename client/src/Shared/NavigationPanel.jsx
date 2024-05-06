@@ -12,7 +12,7 @@ function NavigationPanel() {
     };
 
     return (
-        <nav className="navigation-panel" style={{ '--background-color': user && user.admin ? '#FF7F00' : '#f4f4f4' }}>
+        <nav className="navigation-panel" >
 
             <div className="nav-links">
                 {user && (
