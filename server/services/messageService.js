@@ -126,12 +126,17 @@ module.exports = (messagesCollection) => ({
     getMessagesByLogin: async (req, res) => {
         try {
             const { login } = req.params;
-            const messages = await messagesCollection.find({ login: login.toLowerCase() }).toArray();
-
-            if (messages.length === 0) {
-                return res.status(404).json({ message: "Aucun message trouvé pour cet utilisateur." });
+            if (!login) {
+                return res.status(400).json({ message: "Le login doit être fourni." });
             }
-
+    
+            const messages = await messagesCollection.find({ login: login.toLowerCase() }).toArray();
+    
+            if (messages.length === 0) {
+                // retourne une liste vide avec un statut 200 au lieu d'une erreur 404
+                return res.status(200).json([]);
+            }
+    
             res.status(200).json(messages);
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la récupération des messages", error: error.message });
